@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cloud Bread Puffy – Soft, Sweet, and Puffy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ac:#D63D77;--line:#E58FB0;--cream:#FFF1DE;--milk:#FFFAF3;--pink:#FF3D8B;--lav:#8A4DFF;--blue:#2E96FF;--yel:#FFB800;--grn:#1FBF6B;--brown:#2B1710;--soft:#6B4A3A;--sh:0 8px 24px rgba(107,74,58,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#F4B6CC;color:var(--brown);font:16px/1.55 Nunito,system-ui,sans-serif}
+h1,h2,h3{font-family:Fredoka,Nunito,sans-serif;font-weight:600;line-height:1.15;margin:0 0 .5rem}
+a{color:inherit}img,svg{max-width:100%}
+.top{position:sticky;top:0;z-index:10;display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;align-items:center;padding:.6rem 5vw;background:rgba(255,253,249,.94);backdrop-filter:blur(8px);box-shadow:0 2px 12px rgba(107,74,58,.08)}
+.logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;font-family:Fredoka;font-size:1.15rem}.logo b{color:#E0508A;font-weight:600}
+.search{flex:1;min-width:180px}.search input{width:100%;padding:.6rem 1rem;border:2px solid var(--line);border-radius:99px;background:#fff;font:inherit;color:inherit}
+nav{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}nav a{text-decoration:none;font-weight:700}nav a:hover{color:#E0508A}
+.badge{background:var(--ac);color:#fff;border-radius:99px;padding:0 .45rem;font-size:.8rem}
+main{max-width:1160px;margin:0 auto;padding:1.5rem 5vw 3rem;min-height:70vh}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:2.5rem;border-radius:32px;background:linear-gradient(135deg,var(--ac),var(--line) 55%,var(--cream));box-shadow:var(--sh)}
+.hero h1{font-size:clamp(2.2rem,5.5vw,4rem)}.hero p{font-size:1.15rem;max-width:34ch}
+.hero .stack{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem}.hero .stack svg{animation:bob 4s ease-in-out infinite}.hero .stack svg:nth-child(even){animation-delay:-2s}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.btn{display:inline-block;border:0;border-radius:99px;padding:.65rem 1.3rem;background:var(--brown);color:#fff;font:700 1rem Nunito;cursor:pointer;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}.btn.ghost{background:var(--milk);color:var(--brown);border:2px solid var(--line)}.btn.pink{background:var(--ac);color:#fff}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+:focus-visible{outline:3px solid var(--brown);outline-offset:2px}
+.sec{margin-top:2.5rem}.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.cat{padding:1.5rem;border-radius:24px;text-decoration:none;box-shadow:var(--sh)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.1rem}
+.card{background:var(--milk);border-radius:24px;box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}.card .img{display:block;padding:1rem;position:relative}.card .body{padding:0 1rem 1rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.card h3{font-size:1.05rem}.card p{margin:0;font-size:.9rem;color:var(--soft)}.price{font-weight:800;font-size:1.1rem}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;border-radius:99px;padding:.1rem .6rem;background:var(--cream)}
+.fav{position:absolute;right:.8rem;top:.8rem;border:0;background:#fff;border-radius:50%;width:36px;height:36px;font-size:1.1rem;cursor:pointer;box-shadow:var(--sh);color:#c9a}.fav.on{color:#e0508a}
+.row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-top:auto}
+.qty{display:inline-flex;align-items:center;border:2px solid var(--line);border-radius:99px;background:#fff}.qty button{border:0;background:none;width:32px;height:32px;font-size:1.1rem;cursor:pointer;color:inherit}.qty span{min-width:28px;text-align:center;font-weight:700}
+.bar{display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0}.bar select,.bar input,.f input,.f select,.f textarea{padding:.55rem .9rem;border:2px solid var(--line);border-radius:14px;background:#fff;font:inherit;color:inherit}
+.detail{display:grid;grid-template-columns:1fr 1fr;gap:2rem;background:var(--milk);padding:2rem;border-radius:28px;box-shadow:var(--sh)}
+.panel{background:var(--milk);padding:1.4rem;border-radius:24px;box-shadow:var(--sh);margin-bottom:1rem}
+.line{display:flex;gap:1rem;align-items:center;justify-content:space-between;padding:.7rem 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}.line svg{width:64px}
+.co{display:grid;grid-template-columns:1.3fr .8fr;gap:1.2rem;align-items:start}
+.f label{display:block;font-weight:700;margin:.8rem 0 .25rem}.f input,.f select,.f textarea{width:100%}.f .err{color:#b3365f;font-size:.85rem;min-height:1em}
+.opt{display:flex;gap:.6rem;align-items:flex-start;padding:.7rem;border:2px solid var(--line);border-radius:16px;margin:.4rem 0;cursor:pointer}.opt.off{opacity:.5;cursor:not-allowed;background:#f4efe8}.opt input{width:auto;margin-top:.3rem}
+.note{background:var(--cream);border-radius:14px;padding:.7rem 1rem;font-size:.9rem;margin:.6rem 0}
+.sum div{display:flex;justify-content:space-between;padding:.2rem 0}.sum .t{font-weight:800;font-size:1.2rem;border-top:2px solid var(--line);margin-top:.4rem;padding-top:.6rem}
+.stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem}.stat div{padding:1.2rem;border-radius:20px;background:var(--cream)}.stat b{font:600 1.8rem Fredoka;display:block}
+footer{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center;padding:2rem 5vw;background:var(--milk);border-top:4px solid var(--ac)}footer small{flex-basis:100%;color:var(--soft)}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,120px);background:var(--brown);color:#fff;padding:.7rem 1.3rem;border-radius:99px;transition:transform .3s;z-index:50;max-width:90vw}#toast.show{transform:translate(-50%,0)}
+.empty{text-align:center;padding:3rem 1rem;color:var(--soft)}
+@media(max-width:760px){.hero,.detail,.co{grid-template-columns:1fr}.hero{padding:1.5rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.detail .fav{position:static;border:2px solid var(--line);box-shadow:none}
+
+.rc{max-width:420px;margin:1rem auto;background:#fff;padding:1.5rem 1.4rem;border-radius:16px;box-shadow:var(--sh);font-size:.92rem}
+.rc .c{text-align:center}.rc .c svg{display:block;margin:0 auto .3rem}.rc h2{margin:0;font-size:1.4rem}
+.rc hr{border:0;border-top:2px dashed var(--soft);margin:.8rem 0}
+.rc .r{display:flex;justify-content:space-between;gap:1rem;padding:.12rem 0}.rc .r span:last-child{text-align:right}
+.rc .tot{font-weight:800;font-size:1.1rem}.rc .it{padding:.2rem 0}.rc small{color:var(--soft)}
+@media print{.top,footer,#toast,.noprint{display:none!important}body{background:#fff}main{padding:0;margin:0;max-width:none}.rc{box-shadow:none;margin:0 auto;border-radius:0;padding:0}@page{margin:10mm}}
+
+.h-hero{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;min-height:460px;padding:1rem 0}
+.kicker{margin:0 0 .8rem;color:var(--soft);font-weight:700}.h-txt h1{font-size:clamp(2.6rem,6vw,4.6rem);margin-bottom:1rem}.lead{font-size:1.15rem;max-width:30ch;margin:0 0 1.6rem;color:var(--soft)}
+.h-art{position:relative;display:grid;place-items:center;min-height:380px}.blob{position:absolute;width:min(420px,90%);aspect-ratio:1;border-radius:46% 54% 50% 50%/55% 45% 55% 45%;background:var(--cream);}
+.h-bread{position:relative;animation:bob 5s ease-in-out infinite}.h-bread svg{filter:drop-shadow(0 14px 18px rgba(107,74,58,.18))}
+.ctr{text-align:center}.dots{display:flex;flex-wrap:wrap;justify-content:center;gap:1.6rem;margin-top:1rem}.dots a{display:grid;justify-items:center;gap:.4rem;text-decoration:none;font-weight:700;font-size:.9rem}
+.dots i{width:58px;height:58px;border-radius:50%;box-shadow:inset 0 -6px 0 rgba(107,74,58,.08),var(--sh);transition:transform .2s}.dots a:hover i{transform:scale(1.1)}
+.cat2{display:grid;justify-items:center;text-align:center;padding:1.6rem;border-radius:28px;background:var(--milk);text-decoration:none;box-shadow:var(--sh);transition:transform .2s}.cat2:hover{transform:translateY(-4px)}.cat2 p{margin:0;color:var(--soft)}
+.band{text-align:center;padding:2.5rem 1.5rem;border-radius:32px;background:var(--ac);color:#fff}
+.sec{margin-top:4rem}.sec.cats{margin-top:3rem}
+@media(max-width:760px){.h-hero{grid-template-columns:1fr;text-align:center;min-height:0}.lead{margin-inline:auto}.h-txt .row{justify-content:center}.h-art{min-height:280px}.h-bread svg{width:260px}}
+
+.ph{position:relative;display:block;max-width:100%;margin:0 auto}.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:18px;background:#fff}.ph svg{display:block;width:100%;height:auto}
+.stars{color:#FFB800;letter-spacing:2px}.rt{font-size:.85rem}.pick button{border:0;background:none;font-size:2rem;line-height:1;color:#D9C3A8;cursor:pointer;padding:0 .1rem}.pick button.on{color:#FFB800}
+</style>
+</head>
+<body>
+<header class="top">
+  <a href="#/" class="logo" aria-label="Cloud Bread Puffy">
+    <svg viewBox="0 0 64 44" width="46" height="32" aria-hidden="true"><path d="M12 40c-8 0-11-12-3-15-2-9 9-14 15-8 4-8 17-7 19 3 9-1 13 10 6 14-2 3-5 6-9 6z" fill="#fff" stroke="#2B1710" stroke-width="2.5" stroke-linejoin="round"/><circle cx="24" cy="26" r="2" fill="#2B1710"/><circle cx="40" cy="26" r="2" fill="#2B1710"/><path d="M28 31q4 3 8 0" stroke="#2B1710" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="19" cy="30" rx="3" ry="2" fill="#FF3D8B"/><ellipse cx="45" cy="30" rx="3" ry="2" fill="#FF3D8B"/></svg>
+    <span><b>Cloud Bread</b> Puffy</span>
+  </a>
+  <form class="search" id="searchForm" role="search"><input id="searchInput" type="search" placeholder="Cari cloud bread…" aria-label="Cari produk"></form>
+  <nav>
+    <a href="#/products">Produk</a><a href="#/orders">Pesanan</a><a href="#/contact">Kontak</a>
+    <a href="#/favorites" aria-label="Favorit">♥ <span id="favCount" class="badge">0</span></a>
+    <a href="#/cart" aria-label="Keranjang">🛒 <span id="cartCount" class="badge">0</span></a>
+  </nav>
+</header>
+<main id="app"></main>
+<footer>
+  <div><b>Cloud Bread Puffy</b><br>Jl. Kesawan, Medan, Sumatera Utara, Indonesia<br>WhatsApp: 0881027915414<br>Instagram: <a href="https://www.instagram.com/cloudbreadpuffy/" target="_blank" rel="noopener">@cloudbreadpuffy</a></div>
+  <div><a class="btn ghost" id="waFooter" target="_blank" rel="noopener">Hubungi Kami</a> <a class="btn ghost" id="mapFooter" target="_blank" rel="noopener">Lihat Lokasi Toko</a></div>
+  <small>Data pesanan tersimpan di browser ini saja dan bukan pesanan resmi sampai dikirim lewat WhatsApp dan dikonfirmasi toko.</small>
+</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+/* ===== KONFIGURASI TOKO — edit file ini ===== */
+const STORE = {
+  name: "Cloud Bread Puffy",
+  address: "Jl. Kesawan, Medan, Sumatera Utara, Indonesia",
+  wa: "62881027915414", waDisplay: "0881027915414",
+  ig: "@cloudbreadpuffy",
+  hours: "", // contoh: "Setiap hari 09.00–20.00" (isi sendiri jika sudah pasti)
+  pickupSlots: [], // contoh: ["10.00–12.00","14.00–16.00"]; kosong = tanpa jadwal
+  deliveryArea: "Isi wilayah pengantaran yang dilayani toko (belum ditentukan)."
+};
+/* Tarif CONTOH, bukan tarif resmi GrabExpress/GoSend. Tidak ada integrasi API. */
+const igLink = () => `<a href="https://www.instagram.com/${STORE.ig.slice(1)}/" target="_blank" rel="noopener">${STORE.ig}</a>`;
+const SHIPPING = {
+  GrabExpress: { Hemat: 12000, Express: 25000 },
+  GoSend: { Hemat: 12000, Express: 25000 }
+};
+/* Kosongkan nomor/pemilik sampai data resmi diisi. Metode kosong otomatis nonaktif. */
+const PAYMENTS = {
+  qris: { image: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMzIgMjcyIj48cmVjdCB3aWR0aD0iMjMyIiBoZWlnaHQ9IjI3MiIgZmlsbD0iI2ZmZiIvPjxnIGZpbGw9IiM2QjRBM0EiPjxyZWN0IHg9IjE2IiB5PSIxNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjI0IiB5PSIxNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjMyIiB5PSIxNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjQwIiB5PSIxNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjQ4IiB5PSIxNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjU2IiB5PSIxNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjY0IiB5PSIxNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjgwIiB5PSIxNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9Ijg4IiB5PSIxNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9Ijk2IiB5PSIxNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjEwNCIgeT0iMTYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMTIiIHk9IjE2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTI4IiB5PSIxNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjEzNiIgeT0iMTYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNjAiIHk9IjE2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTY4IiB5PSIxNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE3NiIgeT0iMTYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxODQiIHk9IjE2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTkyIiB5PSIxNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjIwMCIgeT0iMTYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIyMDgiIHk9IjE2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTYiIHk9IjI0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNjQiIHk9IjI0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iODAiIHk9IjI0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iODgiIHk9IjI0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iOTYiIHk9IjI0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTEyIiB5PSIyNCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjEyMCIgeT0iMjQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMzYiIHk9IjI0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTQ0IiB5PSIyNCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE2MCIgeT0iMjQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIyMDgiIHk9IjI0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTYiIHk9IjMyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMzIiIHk9IjMyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNDAiIHk9IjMyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNDgiIHk9IjMyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNjQiIHk9IjMyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTA0IiB5PSIzMiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjEzNiIgeT0iMzIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNjAiIHk9IjMyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTc2IiB5PSIzMiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE4NCIgeT0iMzIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxOTIiIHk9IjMyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMjA4IiB5PSIzMiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE2IiB5PSI0MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjMyIiB5PSI0MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjQwIiB5PSI0MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjQ4IiB5PSI0MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjY0IiB5PSI0MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9Ijg4IiB5PSI0MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9Ijk2IiB5PSI0MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjEwNCIgeT0iNDAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMjAiIHk9IjQwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTI4IiB5PSI0MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE2MCIgeT0iNDAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNzYiIHk9IjQwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTg0IiB5PSI0MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE5MiIgeT0iNDAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIyMDgiIHk9IjQwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTYiIHk9IjQ4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMzIiIHk9IjQ4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNDAiIHk9IjQ4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNDgiIHk9IjQ4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNjQiIHk9IjQ4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iODAiIHk9IjQ4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTM2IiB5PSI0OCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE2MCIgeT0iNDgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNzYiIHk9IjQ4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTg0IiB5PSI0OCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE5MiIgeT0iNDgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIyMDgiIHk9IjQ4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTYiIHk9IjU2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNjQiIHk9IjU2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iODAiIHk9IjU2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iODgiIHk9IjU2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTEyIiB5PSI1NiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjEyMCIgeT0iNTYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMjgiIHk9IjU2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTM2IiB5PSI1NiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE0NCIgeT0iNTYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNjAiIHk9IjU2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMjA4IiB5PSI1NiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE2IiB5PSI2NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjI0IiB5PSI2NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjMyIiB5PSI2NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjQwIiB5PSI2NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjQ4IiB5PSI2NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjU2IiB5PSI2NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjY0IiB5PSI2NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjExMiIgeT0iNjQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMjAiIHk9IjY0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTI4IiB5PSI2NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE2MCIgeT0iNjQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNjgiIHk9IjY0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTc2IiB5PSI2NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE4NCIgeT0iNjQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxOTIiIHk9IjY0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMjAwIiB5PSI2NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjIwOCIgeT0iNjQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI5NiIgeT0iNzIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMjgiIHk9IjcyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTM2IiB5PSI3MiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE0NCIgeT0iNzIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNiIgeT0iODAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI1NiIgeT0iODAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI2NCIgeT0iODAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI4MCIgeT0iODAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMDQiIHk9IjgwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTEyIiB5PSI4MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjEzNiIgeT0iODAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNDQiIHk9IjgwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTUyIiB5PSI4MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE3NiIgeT0iODAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIyMDgiIHk9IjgwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMjQiIHk9Ijg4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMzIiIHk9Ijg4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNzIiIHk9Ijg4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iOTYiIHk9Ijg4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTA0IiB5PSI4OCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjExMiIgeT0iODgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMjAiIHk9Ijg4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTM2IiB5PSI4OCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE0NCIgeT0iODgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNTIiIHk9Ijg4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTY4IiB5PSI4OCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE3NiIgeT0iODgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIyMDAiIHk9Ijg4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNDAiIHk9Ijk2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNDgiIHk9Ijk2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNTYiIHk9Ijk2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNjQiIHk9Ijk2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iODAiIHk9Ijk2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iODgiIHk9Ijk2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTEyIiB5PSI5NiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE0NCIgeT0iOTYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNjAiIHk9Ijk2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTY4IiB5PSI5NiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE2IiB5PSIxMDQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI1NiIgeT0iMTA0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNzIiIHk9IjEwNCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjExMiIgeT0iMTA0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTQ0IiB5PSIxMDQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNTIiIHk9IjEwNCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE2MCIgeT0iMTA0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTY4IiB5PSIxMDQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNzYiIHk9IjEwNCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE4NCIgeT0iMTA0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTYiIHk9IjExMiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjQwIiB5PSIxMTIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI2NCIgeT0iMTEyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iODAiIHk9IjExMiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9Ijg4IiB5PSIxMTIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMTIiIHk9IjExMiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjEyMCIgeT0iMTEyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTM2IiB5PSIxMTIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNDQiIHk9IjExMiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE1MiIgeT0iMTEyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTY4IiB5PSIxMTIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxODQiIHk9IjExMiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE5MiIgeT0iMTEyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMjAwIiB5PSIxMTIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIyNCIgeT0iMTIwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNTYiIHk9IjEyMCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjY0IiB5PSIxMjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI3MiIgeT0iMTIwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iODgiIHk9IjEyMCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9Ijk2IiB5PSIxMjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMDQiIHk9IjEyMCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjEyOCIgeT0iMTIwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTM2IiB5PSIxMjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNjgiIHk9IjEyMCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE3NiIgeT0iMTIwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTkyIiB5PSIxMjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIyMDAiIHk9IjEyMCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjMyIiB5PSIxMjgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI0OCIgeT0iMTI4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNjQiIHk9IjEyOCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjcyIiB5PSIxMjgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI5NiIgeT0iMTI4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTA0IiB5PSIxMjgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMjAiIHk9IjEyOCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjEyOCIgeT0iMTI4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTM2IiB5PSIxMjgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNDQiIHk9IjEyOCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE1MiIgeT0iMTI4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTYwIiB5PSIxMjgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNjgiIHk9IjEyOCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE4NCIgeT0iMTI4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMjAwIiB5PSIxMjgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIyMDgiIHk9IjEyOCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE2IiB5PSIxMzYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIyNCIgeT0iMTM2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMzIiIHk9IjEzNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjU2IiB5PSIxMzYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI2NCIgeT0iMTM2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iODAiIHk9IjEzNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9Ijk2IiB5PSIxMzYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMDQiIHk9IjEzNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjEyMCIgeT0iMTM2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTUyIiB5PSIxMzYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxODQiIHk9IjEzNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE5MiIgeT0iMTM2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMjAwIiB5PSIxMzYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIyMDgiIHk9IjEzNiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE2IiB5PSIxNDQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIzMiIgeT0iMTQ0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNDAiIHk9IjE0NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjQ4IiB5PSIxNDQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI4MCIgeT0iMTQ0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iODgiIHk9IjE0NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9Ijk2IiB5PSIxNDQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMDQiIHk9IjE0NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjExMiIgeT0iMTQ0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTIwIiB5PSIxNDQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMjgiIHk9IjE0NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE2MCIgeT0iMTQ0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTc2IiB5PSIxNDQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxODQiIHk9IjE0NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE5MiIgeT0iMTQ0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMjAwIiB5PSIxNDQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIyMDgiIHk9IjE0NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjgwIiB5PSIxNTIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI4OCIgeT0iMTUyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iOTYiIHk9IjE1MiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE1MiIgeT0iMTUyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTYwIiB5PSIxNTIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNzYiIHk9IjE1MiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjIwMCIgeT0iMTUyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTYiIHk9IjE2MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjI0IiB5PSIxNjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIzMiIgeT0iMTYwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNDAiIHk9IjE2MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjQ4IiB5PSIxNjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI1NiIgeT0iMTYwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNjQiIHk9IjE2MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjEyOCIgeT0iMTYwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTM2IiB5PSIxNjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNDQiIHk9IjE2MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE1MiIgeT0iMTYwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTYwIiB5PSIxNjAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIyMDgiIHk9IjE2MCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE2IiB5PSIxNjgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI2NCIgeT0iMTY4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iODAiIHk9IjE2OCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9Ijg4IiB5PSIxNjgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI5NiIgeT0iMTY4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTEyIiB5PSIxNjgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMzYiIHk9IjE2OCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE0NCIgeT0iMTY4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTUyIiB5PSIxNjgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxOTIiIHk9IjE2OCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjIwMCIgeT0iMTY4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMjA4IiB5PSIxNjgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNiIgeT0iMTc2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMzIiIHk9IjE3NiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjQwIiB5PSIxNzYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI0OCIgeT0iMTc2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNjQiIHk9IjE3NiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9Ijg4IiB5PSIxNzYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMDQiIHk9IjE3NiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjExMiIgeT0iMTc2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTIwIiB5PSIxNzYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMzYiIHk9IjE3NiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE2MCIgeT0iMTc2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTY4IiB5PSIxNzYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxOTIiIHk9IjE3NiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjIwMCIgeT0iMTc2IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMjA4IiB5PSIxNzYiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNiIgeT0iMTg0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMzIiIHk9IjE4NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjQwIiB5PSIxODQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI0OCIgeT0iMTg0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNjQiIHk9IjE4NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjEwNCIgeT0iMTg0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTIwIiB5PSIxODQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMjgiIHk9IjE4NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjEzNiIgeT0iMTg0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTQ0IiB5PSIxODQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNTIiIHk9IjE4NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE2MCIgeT0iMTg0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTY4IiB5PSIxODQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNzYiIHk9IjE4NCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE4NCIgeT0iMTg0IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMjAwIiB5PSIxODQiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNiIgeT0iMTkyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMzIiIHk9IjE5MiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjQwIiB5PSIxOTIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI0OCIgeT0iMTkyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNjQiIHk9IjE5MiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9Ijk2IiB5PSIxOTIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMDQiIHk9IjE5MiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjExMiIgeT0iMTkyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTIwIiB5PSIxOTIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMjgiIHk9IjE5MiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE0NCIgeT0iMTkyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTYwIiB5PSIxOTIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNjgiIHk9IjE5MiIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE4NCIgeT0iMTkyIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTkyIiB5PSIxOTIiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNiIgeT0iMjAwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNjQiIHk9IjIwMCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjgwIiB5PSIyMDAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMDQiIHk9IjIwMCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjExMiIgeT0iMjAwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTI4IiB5PSIyMDAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMzYiIHk9IjIwMCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE0NCIgeT0iMjAwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTUyIiB5PSIyMDAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNzYiIHk9IjIwMCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE5MiIgeT0iMjAwIiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMjA4IiB5PSIyMDAiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxNiIgeT0iMjA4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMjQiIHk9IjIwOCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjMyIiB5PSIyMDgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI0MCIgeT0iMjA4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iNDgiIHk9IjIwOCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjU2IiB5PSIyMDgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI2NCIgeT0iMjA4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iODAiIHk9IjIwOCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9Ijg4IiB5PSIyMDgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSI5NiIgeT0iMjA4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTA0IiB5PSIyMDgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMTIiIHk9IjIwOCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjEyMCIgeT0iMjA4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTI4IiB5PSIyMDgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxMzYiIHk9IjIwOCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjE2OCIgeT0iMjA4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMTc2IiB5PSIyMDgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIxOTIiIHk9IjIwOCIgd2lkdGg9IjgiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjIwMCIgeT0iMjA4IiB3aWR0aD0iOCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMjA4IiB5PSIyMDgiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiLz48L2c+PHJlY3QgeD0iMCIgeT0iMjI4IiB3aWR0aD0iMjMyIiBoZWlnaHQ9IjQ0IiBmaWxsPSIjRjZCOENGIi8+PHRleHQgeD0iMTE2LjAiIHk9IjI1NCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNkI0QTNBIj5DT05UT0gg4oCTIEJVS0FOIFFSSVMgQVNMSTwvdGV4dD48L3N2Zz4=", contoh: true }, // path gambar QRIS resmi, mis. "assets/qris.png"
+  ewallet: {
+    DANA: { owner: "Cloud Bread Puffy", number: "12345678" }, GoPay: { owner: "Cloud Bread Puffy", number: "12345678" },
+    OVO: { owner: "Cloud Bread Puffy", number: "12345678" }, ShopeePay: { owner: "Cloud Bread Puffy", number: "12345678" }
+  },
+  banks: [
+    { bank: "BCA", owner: "Cloud Bread Puffy", number: "12345678" },
+    { bank: "BRI", owner: "Cloud Bread Puffy", number: "12345678" },
+    { bank: "Mandiri", owner: "Cloud Bread Puffy", number: "12345678" }
+  ]
+};
+const VOUCHERS = { PUFFY10: { pct: 10, label: "Voucher contoh diskon 10%" } };
+const STATUSES = ["Menunggu Pembayaran","Menunggu Verifikasi","Menunggu Konfirmasi","Diproses","Siap Diambil","Dalam Pengiriman","Selesai","Dibatalkan"];
+/* Harga & stok CONTOH — konfirmasi pemilik toko. Deskripsi tidak menyebut komposisi resmi. */
+const COLORS = {
+  Purple:{id:"Ungu",c:"#8A4DFF"}, Pink:{id:"Pink",c:"#FF3D8B"}, Blue:{id:"Biru",c:"#2E96FF"},
+  Yellow:{id:"Kuning",c:"#FFB800"}, Green:{id:"Hijau",c:"#1FBF6B"}, Rainbow:{id:"Rainbow",c:"rainbow"}
+};
+/* Foto produk: simpan di folder assets/images/ dengan nama seperti original-purple.jpg atau topping-pink.jpg. Jika file tidak ada, tampil ilustrasi bawaan. */
+/* SATU LINK untuk semua 12 foto. Contoh: "assets/images/" atau "https://USERNAME.github.io/NAMA-REPO/assets/images/" */
+const IMG_BASE = "https://rahmayantisyahna-cell.github.io/bread/";
+const IMG_EXT = "jfif";
+const imgUrl = n => IMG_BASE.replace(/\/?$/, "/") + n + "." + IMG_EXT;
+const PRODUCTS = Object.keys(COLORS).flatMap((k, i) => [
+  { id: "o" + (i+1), img: imgUrl("original-" + k.toLowerCase()), name: `Original ${k} Cloud Bread`, cat: "Original", color: k, price: k==="Rainbow"?20000:18000, stock: 20, newest: i>3,
+    desc: `Cloud bread ${COLORS[k].id.toLowerCase()} yang lembut dan mengembang, tanpa topping.` },
+  { id: "t" + (i+1), img: imgUrl("topping-" + k.toLowerCase()), name: `${k} Topping Cloud Bread`, cat: "Topping", color: k, price: k==="Rainbow"?30000:27000, stock: 15, newest: i<2,
+    desc: `Cloud bread ${COLORS[k].id.toLowerCase()} dengan krim dan taburan warna senada.` }
+]).sort((a,b)=> a.cat===b.cat ? 0 : a.cat==="Original" ? -1 : 1);
+
+</script>
+<script>
+const $ = (s, r=document) => r.querySelector(s);
+const rp = n => "Rp" + Number(n).toLocaleString("id-ID");
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const PREF = "cbp_";
+const load = (k, d) => { try { const v = JSON.parse(localStorage.getItem(PREF+k)); return v ?? d; } catch { return d; } };
+const save = (k, v) => { try { localStorage.setItem(PREF+k, JSON.stringify(v)); } catch { toast("Penyimpanan browser penuh/diblokir."); } };
+let cart = load("cart", []), favs = load("favs", []), orders = load("orders", []), stock = load("stock", {});
+if (!Array.isArray(cart)) cart = []; if (!Array.isArray(favs)) favs = []; if (!Array.isArray(orders)) orders = []; if (typeof stock !== "object") stock = {};
+PRODUCTS.forEach(p => { if (typeof stock[p.id] !== "number") stock[p.id] = p.stock; });
+let reviews = load("reviews", {}); if (!reviews || typeof reviews !== "object" || Array.isArray(reviews)) reviews = {};
+const rvList = id => Array.isArray(reviews[id]) ? reviews[id] : [];
+const avg = id => { const l = rvList(id); return l.length ? l.reduce((t, r) => t + r.rating, 0) / l.length : 0; };
+const stars = n => "★".repeat(Math.round(n)) + "☆".repeat(5 - Math.round(n));
+const prod = id => PRODUCTS.find(p => p.id === id);
+const cartItems = () => cart.filter(i => prod(i.id)).map(i => ({ ...i, p: prod(i.id) }));
+const subtotal = () => cartItems().reduce((s, i) => s + i.p.price * i.qty, 0);
+const waLink = t => `https://wa.me/${STORE.wa}?text=${encodeURIComponent(t)}`;
+const mapLink = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Jl. Kesawan, Medan, Sumatera Utara");
+function toast(m) { const t = $("#toast"); t.textContent = m; t.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove("show"), 2600); }
+function copy(txt) { navigator.clipboard?.writeText(txt).then(() => toast("Tersalin ✓"), () => toast("Gagal menyalin, salin manual.")); }
+
+/* ---- Ilustrasi roti (SVG buatan sendiri) ---- */
+function bread(p, size = 200) {
+  const rb = p.color === "Rainbow", id = "g" + p.id, fill = rb ? `url(#${id})` : (p.fill || COLORS[p.color].c), sk = p.stroke || "#2B1710";
+  const top = p.cat === "Topping" ? `<path d="M70 62q30-34 60 0q-6 14-30 12q-24 2-30-12z" fill="#FFD9A0" stroke="${p.stroke || "#2B1710"}" stroke-width="2.5"/><circle cx="88" cy="58" r="3" fill="#FF3D8B"/><circle cx="104" cy="50" r="3" fill="#2E96FF"/><circle cx="116" cy="60" r="3" fill="#FFB800"/><circle cx="98" cy="66" r="3" fill="#1FBF6B"/>` : "";
+  const svg = `<svg viewBox="0 0 200 160" width="${size}" role="img" aria-label="${esc(p.name)}"><defs><linearGradient id="${id}" x1="0" x2="1"><stop offset="0" stop-color="#FF3D8B"/><stop offset=".25" stop-color="#FFB800"/><stop offset=".5" stop-color="#1FBF6B"/><stop offset=".75" stop-color="#2E96FF"/><stop offset="1" stop-color="#8A4DFF"/></linearGradient></defs><ellipse cx="100" cy="146" rx="70" ry="8" fill="#2B1710" opacity=".12"/><path d="M26 132c-14-4-16-30 4-42-6-22 16-44 40-38 12-16 52-14 60 6 28-2 44 28 28 52-2 14-14 22-30 22z" fill="${fill}" stroke="${sk}" stroke-width="3" stroke-linejoin="round"/><path d="M62 88q8-8 18-4M110 80q10-8 22-2" stroke="#2B1710" stroke-width="5" stroke-linecap="round" opacity=".18" fill="none"/>${top}</svg>`;
+  return p.img ? `<span class="ph" style="width:${size}px"><img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy" onerror="this.remove()">${svg}</span>` : svg;
+}
+const favBtn = id => `<button class="fav ${favs.includes(id)?"on":""}" data-fav="${id}" aria-label="Favorit">${favs.includes(id)?"♥":"♡"}</button>`;
+function card(p) {
+  const out = stock[p.id] <= 0;
+  return `<article class="card"><a class="img" href="#/p/${p.id}">${bread(p)}</a>${favBtn(p.id)}<div class="body">
+  <span class="tag" style="background:${p.color==="Rainbow"?"linear-gradient(90deg,#FF3D8B,#FFB800,#1FBF6B,#2E96FF,#8A4DFF)":COLORS[p.color].c}">${p.cat} · ${COLORS[p.color].id}</span>
+  <h3>${esc(p.name)}</h3><p class="rt">${rvList(p.id).length ? `<span class="stars">★</span> ${avg(p.id).toFixed(1)} (${rvList(p.id).length} ulasan)` : "Belum ada ulasan"}</p><p>${esc(p.desc)}</p><div class="price">${rp(p.price)} <small>(harga contoh)</small></div>
+  <p>${out ? "Stok habis" : "Stok: " + stock[p.id]} (contoh)</p>
+  <div class="row"><a class="btn ghost" href="#/p/${p.id}">Lihat Detail</a>
+  <button class="btn pink" data-add="${p.id}" ${out?"disabled":""}>Tambah ke Keranjang</button></div></div></article>`;
+}
+
+/* ---- Keranjang ---- */
+function addToCart(id, q = 1) {
+  const have = cart.find(i => i.id === id), n = (have?.qty || 0) + q;
+  if (n > stock[id]) return toast(`Stok hanya ${stock[id]}.`);
+  have ? have.qty = n : cart.push({ id, qty: q }); save("cart", cart); badges(); toast("Ditambahkan ke keranjang ✓");
+}
+function badges() { $("#cartCount").textContent = cart.reduce((s, i) => s + i.qty, 0); $("#favCount").textContent = favs.length; }
+
+/* ---- Router ---- */
+const routes = {
+  "": home, products: () => listPage(null, false), p: detail, cart: cartPage, checkout, pay: payPage, orders: ordersPage, receipt: receiptPage, contact, favorites: () => listPage(null, true)
+};
+function route() {
+  const [r, a] = location.hash.replace(/^#\/?/, "").split("/"); const [name, q] = (r || "").split("?");
+  $("#app").innerHTML = ""; (routes[name] || home)(a, q); window.scrollTo(0, 0); badges();
+}
+function home() {
+  const pick = PRODUCTS.filter(p => ["o2","o6","t1","t6"].includes(p.id));
+  const hero = { id: "hero", name: "Pink Topping Cloud Bread", cat: "Topping", color: "Pink" };
+  $("#app").innerHTML = `<section class="h-hero"><div class="h-txt"><p class="kicker">Bakery · Jl. Kesawan, Medan</p><h1>Soft, Sweet,<br>and Puffy.</h1><p class="lead">Cloud bread selembut awan dalam enam warna pastel, polos atau dengan topping krim.</p><div class="row"><a class="btn" href="#/products">Belanja Sekarang</a><a class="btn ghost" href="#/products?Topping">Lihat Topping</a></div></div>
+  <div class="h-art"><div class="blob"></div><div class="h-bread">${bread(hero, 360)}</div></div></section>
+  <section class="sec"><h2 class="ctr">Pilih warnamu</h2><div class="dots">${Object.keys(COLORS).map(k => `<a href="#/products?${k}"><i style="background:${COLORS[k].c === "rainbow" ? "linear-gradient(135deg,#FF3D8B,#FFB800,#1FBF6B,#2E96FF,#8A4DFF)" : COLORS[k].c}"></i>${COLORS[k].id}</a>`).join("")}</div></section>
+  <section class="sec cats"><a class="cat2" href="#/products?Original"><div>${bread({ id: "c1", name: "Original", cat: "Original", color: "Blue" }, 130)}</div><h3>Original</h3><p>Polos, lembut, enam warna.</p></a>
+  <a class="cat2" href="#/products?Topping"><div>${bread({ id: "c2", name: "Topping", cat: "Topping", color: "Purple" }, 130)}</div><h3>Topping</h3><p>Dengan krim dan taburan.</p></a></section>
+  <section class="sec"><h2 class="ctr">Pilihan favorit</h2><div class="grid">${pick.map(card).join("")}</div><p class="ctr"><a class="btn ghost" href="#/products">Lihat semua 12 produk</a></p></section>
+  <section class="sec band"><h2>Mampir atau pesan lewat WhatsApp</h2><p>${STORE.address}<br>${STORE.hours ? "Buka " + esc(STORE.hours) : "WhatsApp " + STORE.waDisplay}<br>Instagram ${igLink()}</p><div class="row" style="justify-content:center"><a class="btn" target="_blank" rel="noopener" href="${waLink("Halo Cloud Bread Puffy, saya ingin bertanya mengenai produk dan pemesanan cloud bread.")}">Hubungi Kami</a><a class="btn ghost" target="_blank" rel="noopener" href="${mapLink}">Lihat Lokasi Toko</a></div></section>`;
+}
+function listPage(_, favOnly) {
+  const f = { q: sessionStorage.getItem("cbp_q") || "", cat: "", col: "", sort: "" };
+  const hq = location.hash.split("?")[1]; if (hq && ["Original", "Topping"].includes(hq)) f.cat = hq; if (hq && COLORS[hq]) f.col = hq;
+  $("#app").innerHTML = `<h2>${favOnly ? "Favorit saya" : "Semua produk"}</h2><div class="bar">
+  <input id="fq" autocomplete="off" placeholder="Cari nama…" value="${esc(f.q)}"><select id="fc" autocomplete="off"><option value="">Semua kategori</option><option>Original</option><option>Topping</option></select>
+  <select id="fw" autocomplete="off"><option value="">Semua warna</option>${Object.keys(COLORS).map(k => `<option value="${k}">${COLORS[k].id}</option>`).join("")}</select>
+  <select id="fs" autocomplete="off"><option value="">Urutkan</option><option value="lo">Harga terendah</option><option value="hi">Harga tertinggi</option><option value="nm">Nama A–Z</option></select></div>
+  <p id="cnt"></p><div class="grid" id="pg"></div>`;
+  $("#fc").value = f.cat; $("#fw").value = f.col;
+  const draw = () => {
+    const q = $("#fq").value.toLowerCase(), c = $("#fc").value, w = $("#fw").value, s = $("#fs").value;
+    let l = PRODUCTS.filter(p => (!favOnly || favs.includes(p.id)) && p.name.toLowerCase().includes(q) && (!c || p.cat === c) && (!w || p.color === w));
+    if (s === "lo") l.sort((a, b) => a.price - b.price); if (s === "hi") l.sort((a, b) => b.price - a.price); if (s === "nm") l.sort((a, b) => a.name.localeCompare(b.name));
+    $("#cnt").textContent = `${l.length} produk ditemukan`; $("#pg").innerHTML = l.length ? l.map(card).join("") : `<div class="empty">Tidak ada produk cocok. Coba kata kunci atau filter lain.</div>`;
+  };
+  ["fq", "fc", "fw", "fs"].forEach(i => $("#" + i).addEventListener("input", draw)); sessionStorage.removeItem("cbp_q"); draw();
+}
+function detail(id) {
+  const p = prod(id); if (!p) return location.hash = "#/products";
+  const out = stock[id] <= 0;
+  $("#app").innerHTML = `<a href="javascript:history.back()">← Kembali</a><div class="detail"><div>${bread(p, 420)}</div><div><span class="tag">${p.cat} · ${COLORS[p.color].id}</span><h1>${esc(p.name)}</h1><p>${esc(p.desc)}</p><div class="price">${rp(p.price)}</div>
+  <div class="note">Harga, stok, dan komposisi masih contoh dan perlu dikonfirmasi pemilik toko.</div><p>${out ? "Stok habis" : "Stok tersedia: " + stock[id]}</p>
+  <div class="row"><div class="qty"><button data-q="-1">−</button><span id="dq">1</span><button data-q="1">+</button></div><button class="btn" id="dadd" ${out?"disabled":""}>Tambah ke Keranjang</button>${favBtn(id)}</div></div></div>
+  <section class="sec panel" id="rv"></section>
+  <section class="sec"><h2>Produk terkait</h2><div class="grid">${PRODUCTS.filter(x => x.id !== id && (x.color === p.color || x.cat === p.cat)).slice(0, 4).map(card).join("")}</div></section>`;
+  let q = 1; document.querySelectorAll("[data-q]").forEach(b => b.onclick = () => { q = Math.min(Math.max(1, q + +b.dataset.q), Math.max(1, stock[id])); $("#dq").textContent = q; });
+  $("#dadd").onclick = () => addToCart(id, q); drawReviews(id);
+}
+function drawReviews(id) {
+  const l = rvList(id).slice().reverse(), prof = load("profile", {}); let rate = 0;
+  $("#rv").innerHTML = `<h2>Rating & ulasan</h2><p><b>${l.length ? avg(id).toFixed(1) + " / 5" : "Belum ada rating"}</b> ${l.length ? `<span class="stars">${stars(avg(id))}</span> (${l.length} ulasan)` : ""}</p>
+  <form class="f" id="rf" novalidate><label>Rating Anda</label><div class="pick" id="pick">${[1, 2, 3, 4, 5].map(n => `<button type="button" data-s="${n}" aria-label="${n} bintang">★</button>`).join("")}</div><div class="err" data-e="rate"></div>
+  <label>Nama</label><input name="name" maxlength="40" value="${esc(prof.name)}"><div class="err" data-e="name"></div>
+  <label>Ulasan</label><textarea name="text" rows="3" maxlength="400" placeholder="Ceritakan pengalaman Anda"></textarea><div class="err" data-e="text"></div>
+  <button class="btn" type="submit">Kirim Ulasan</button></form>
+  <div class="note">Ulasan tersimpan di browser ini saja dan belum terlihat oleh pelanggan lain.</div>
+  ${l.map(r => `<div class="line" style="display:block"><b>${esc(r.name)}</b> <span class="stars">${stars(r.rating)}</span> <small>${new Date(r.date).toLocaleDateString("id-ID")}</small><p style="margin:.2rem 0">${esc(r.text)}</p></div>`).join("")}`;
+  const f = $("#rf");
+  $("#pick").onclick = e => { const b = e.target.closest("[data-s]"); if (!b) return; rate = +b.dataset.s; document.querySelectorAll("#pick button").forEach(x => x.classList.toggle("on", +x.dataset.s <= rate)); };
+  f.onsubmit = e => {
+    e.preventDefault(); const name = f.name.value.trim(), text = f.text.value.trim(), er = {};
+    if (!rate) er.rate = "Pilih jumlah bintang."; if (name.length < 2) er.name = "Isi nama (min. 2 huruf)."; if (text.length < 5) er.text = "Tulis ulasan minimal 5 karakter.";
+    document.querySelectorAll("#rf [data-e]").forEach(x => x.textContent = er[x.dataset.e] || "");
+    if (Object.keys(er).length) return;
+    (reviews[id] = rvList(id)).push({ name, rating: rate, text, date: new Date().toISOString() }); save("reviews", reviews); drawReviews(id); toast("Terima kasih, ulasan tersimpan ✓");
+  };
+}
+function cartPage() {
+  const it = cartItems();
+  if (!it.length) return $("#app").innerHTML = `<div class="empty"><h2>Keranjang masih kosong</h2><a class="btn" href="#/products">Mulai belanja</a></div>`;
+  $("#app").innerHTML = `<h2>Keranjang</h2><div class="panel">${it.map(i => `<div class="line">${bread(i.p, 64)}<div style="flex:1"><b>${esc(i.p.name)}</b><br>${rp(i.p.price)}</div><div class="qty"><button data-cq="${i.id}" data-d="-1">−</button><span>${i.qty}</span><button data-cq="${i.id}" data-d="1">+</button></div><b>${rp(i.p.price * i.qty)}</b><button class="btn ghost" data-rm="${i.id}">Hapus</button></div>`).join("")}
+  <div class="sum"><div class="t"><span>Total</span><span>${rp(subtotal())}</span></div></div></div><a class="btn ghost" href="#/products">Lanjut belanja</a> <a class="btn" href="#/checkout">Lanjut ke checkout</a>`;
+}
+
+/* ---- Checkout ---- */
+const CK = { del: "pickup", courier: "GrabExpress", service: "Hemat", pay: "", voucher: "" };
+const payOptions = () => {
+  const o = [{ k: "QRIS", ok: !!PAYMENTS.qris.image, info: "QRIS belum tersedia", tag: PAYMENTS.qris.contoh ? " (contoh)" : "" }];
+  Object.entries(PAYMENTS.ewallet).forEach(([n, d]) => o.push({ k: n, ok: !!(d.number && d.owner), info: "Metode pembayaran belum dikonfigurasi" }));
+  PAYMENTS.banks.forEach(b => o.push({ k: "Transfer " + b.bank, ok: !!(b.number && b.owner), info: "Belum tersedia" }));
+  o.push({ k: "Kartu Debit/Kredit", ok: false, info: "Memerlukan integrasi payment gateway resmi" }); return o;
+};
+function totals() {
+  const sub = subtotal(), v = VOUCHERS[CK.voucher], disc = v ? Math.round(sub * v.pct / 100) : 0, ship = CK.del === "delivery" ? SHIPPING[CK.courier][CK.service] : 0;
+  return { sub, disc, ship, total: sub - disc + ship };
+}
+function checkout() {
+  if (!cartItems().length) return location.hash = "#/cart";
+  const s = load("profile", {});
+  $("#app").innerHTML = `<h2>Checkout</h2><div class="co"><form class="panel f" id="cf" novalidate>
+  <label>Nama lengkap</label><input name="name" value="${esc(s.name)}"><div class="err" data-e="name"></div>
+  <label>Nomor WhatsApp</label><input name="phone" inputmode="tel" value="${esc(s.phone)}" placeholder="08xxxxxxxxxx"><div class="err" data-e="phone"></div>
+  <label>Pengambilan</label><label class="opt"><input type="radio" name="del" value="pickup" checked> <span>Ambil sendiri (Rp0) di ${STORE.address}</span></label>
+  <label class="opt"><input type="radio" name="del" value="delivery"> <span>Pengantaran kurir: Hemat ${rp(Math.min(...Object.values(SHIPPING).map(x => x.Hemat)))} atau Express ${rp(Math.min(...Object.values(SHIPPING).map(x => x.Express)))} (estimasi)</span></label>
+  <div id="dbox" hidden><label>Kurir & layanan</label><select name="svc">${Object.keys(SHIPPING).flatMap(k => Object.keys(SHIPPING[k]).map(sv => `<option value="${k}|${sv}">${k} ${sv} – ${rp(SHIPPING[k][sv])} (estimasi)</option>`)).join("")}</select>
+  <div class="note">Tarif adalah estimasi contoh, bukan tarif resmi dan belum terintegrasi dengan GrabExpress/GoSend. ${esc(STORE.deliveryArea)}</div>
+  <label>Alamat pengiriman</label><textarea name="addr" rows="2"></textarea><div class="err" data-e="addr"></div></div>
+  <div id="pbox">${STORE.pickupSlots.length ? `<label>Jadwal pengambilan</label><select name="slot">${STORE.pickupSlots.map(x => `<option>${esc(x)}</option>`).join("")}</select>` : ""}</div>
+  <label>Catatan untuk toko</label><textarea name="note" rows="2"></textarea>
+  <label>Metode pembayaran</label>${payOptions().map(o => `<label class="opt ${o.ok ? "" : "off"}"><input type="radio" name="pay" value="${esc(o.k)}" ${o.ok ? "" : "disabled"}><span><b>${esc(o.k)}${o.tag || ""}</b>${o.ok ? "" : `<br><small>${o.info}</small>`}</span></label>`).join("")}
+  <div class="err" data-e="pay"></div><button class="btn" type="submit">Buat Pesanan</button></form>
+  <aside class="panel sum"><h3>Ringkasan</h3>${cartItems().map(i => `<div><span>${i.qty}× ${esc(i.p.name)}</span><span>${rp(i.p.price * i.qty)}</span></div>`).join("")}<hr>
+  <div class="row"><input id="vc" placeholder="Kode voucher" style="flex:1;padding:.5rem;border-radius:12px;border:2px solid var(--line)"><button class="btn ghost" type="button" id="vb">Pakai</button></div><small>Coba: PUFFY10 (voucher contoh)</small>
+  <div id="tt"></div></aside></div>`;
+  const f = $("#cf"), draw = () => { const t = totals(); $("#tt").innerHTML = `<div><span>Subtotal</span><span>${rp(t.sub)}</span></div><div><span>Diskon</span><span>-${rp(t.disc)}</span></div><div><span>Pengiriman</span><span>${rp(t.ship)}</span></div><div class="t"><span>Total</span><span>${rp(t.total)}</span></div>`; };
+  f.onchange = () => { CK.del = f.del.value; [CK.courier, CK.service] = f.svc.value.split("|"); $("#dbox").hidden = CK.del !== "delivery"; $("#pbox").hidden = CK.del === "delivery"; draw(); };
+  $("#vb").onclick = () => { const c = $("#vc").value.trim().toUpperCase(); CK.voucher = VOUCHERS[c] ? c : ""; toast(VOUCHERS[c] ? VOUCHERS[c].label + " dipakai" : "Voucher tidak valid"); draw(); };
+  f.onsubmit = e => { e.preventDefault(); submitOrder(f); }; draw();
+}
+function submitOrder(f) {
+  const v = n => f[n]?.value?.trim() || "", errs = {};
+  if (v("name").length < 3) errs.name = "Isi nama lengkap (min. 3 huruf).";
+  if (!/^(\+62|62|0)8\d{7,12}$/.test(v("phone").replace(/[\s-]/g, ""))) errs.phone = "Nomor WhatsApp tidak valid, contoh 081234567890.";
+  if (f.del.value === "delivery" && v("addr").length < 8) errs.addr = "Isi alamat pengiriman lengkap.";
+  if (!f.pay.value) errs.pay = "Pilih metode pembayaran yang tersedia.";
+  const bad = cartItems().find(i => i.qty > stock[i.id]); if (bad) { toast(`Stok ${bad.p.name} tidak cukup.`); return; }
+  document.querySelectorAll("[data-e]").forEach(e => e.textContent = errs[e.dataset.e] || "");
+  if (Object.keys(errs).length) return toast("Periksa kembali formulir.");
+  const t = totals(), id = "CBP-" + new Date().toISOString().slice(2, 10).replace(/-/g, "") + "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
+  const o = { id, date: new Date().toISOString(), name: v("name"), phone: v("phone"), del: f.del.value, courier: f.del.value === "delivery" ? CK.courier : "", service: f.del.value === "delivery" ? CK.service : "", addr: v("addr"), slot: v("slot"), note: v("note"), pay: f.pay.value, voucher: CK.voucher, ...t, status: "Menunggu Pembayaran", items: cartItems().map(i => ({ id: i.id, name: i.p.name, qty: i.qty, price: i.p.price })) };
+  o.items.forEach(i => stock[i.id] -= i.qty); orders.unshift(o); cart = [];
+  save("orders", orders); save("stock", stock); save("cart", cart); save("profile", { name: o.name, phone: o.phone });
+  location.hash = "#/pay/" + id;
+}
+function payInfo(o) {
+  const k = o.pay, e = PAYMENTS.ewallet[k], b = PAYMENTS.banks.find(x => "Transfer " + x.bank === k);
+  if (k === "QRIS") return PAYMENTS.qris.image ? `<img src="${esc(PAYMENTS.qris.image)}" alt="QRIS toko" width="240">${PAYMENTS.qris.contoh ? `<div class="note">Ini gambar QRIS contoh dan tidak bisa dipakai membayar. Ganti dengan QRIS resmi toko di PAYMENTS.qris.image.</div>` : `<p>Scan QRIS, bayar sesuai total.</p>`}` : `<p>QRIS belum tersedia.</p>`;
+  const d = e || b; if (!d) return "<p>Metode ini belum tersedia.</p>";
+  return `<p>Atas nama: <b>${esc(d.owner)}</b><br>Nomor tujuan: <b>${esc(d.number)}</b> <button class="btn ghost" data-copy="${esc(d.number)}">Salin nomor</button></p><p>Transfer tepat ${rp(o.total)} lalu kirim bukti bayar lewat WhatsApp.</p>`;
+}
+function waText(o) {
+  return `Halo Cloud Bread Puffy, saya ingin memesan.\nNo. pesanan: ${o.id}\n` + o.items.map(i => `- ${i.name} x${i.qty}`).join("\n") + `\nTotal: ${rp(o.total)}\n${o.del === "pickup" ? "Ambil sendiri" + (o.slot ? " (" + o.slot + ")" : "") : o.courier + " " + o.service + " ke " + o.addr}\nPembayaran: ${o.pay}\nNama: ${o.name}\nCatatan: ${o.note || "-"}`;
+}
+function payPage(id) {
+  const o = orders.find(x => x.id === id); if (!o) return location.hash = "#/orders";
+  $("#app").innerHTML = `<div class="panel"><h2>Pesanan ${esc(o.id)} dibuat</h2><p>${new Date(o.date).toLocaleString("id-ID")} · Status lokal: <b>${esc(o.status)}</b></p>
+  <div class="note">Pesanan ini baru tersimpan di browser Anda. Toko belum menerimanya sampai Anda mengirim pesan WhatsApp di bawah, dan tidak ada notifikasi otomatis.</div>
+  ${o.items.map(i => `<div class="line"><span>${i.qty}× ${esc(i.name)}</span><b>${rp(i.qty * i.price)}</b></div>`).join("")}
+  <div class="sum"><div class="t"><span>Total bayar</span><span>${rp(o.total)}</span></div></div>
+  <h3>Pembayaran: ${esc(o.pay)}</h3>${payInfo(o)}
+  <p>${o.del === "pickup" ? "Ambil di " + STORE.address + ". Tunjukkan nomor pesanan saat mengambil." : "Dikirim via " + esc(o.courier) + " " + esc(o.service) + " (estimasi tarif contoh)."}</p>
+  <div class="row"><a class="btn" target="_blank" rel="noopener" href="${waLink(waText(o))}">Kirim Pesanan via WhatsApp</a><button class="btn pink" id="paid" ${o.status !== "Menunggu Pembayaran" ? "disabled" : ""}>Saya Sudah Membayar</button><a class="btn ghost" href="#/receipt/${o.id}">Lihat & Cetak Struk</a><a class="btn ghost" href="#/orders">Pesanan saya</a></div>
+  <small>Tombol “Saya Sudah Membayar” hanya mengubah status lokal menjadi Menunggu Verifikasi, bukan bukti pembayaran diterima.</small></div>`;
+  $("#paid").onclick = () => { o.status = "Menunggu Verifikasi"; save("orders", orders); payPage(id); toast("Status: Menunggu Verifikasi"); };
+}
+function ordersPage() {
+  $("#app").innerHTML = `<h2>Riwayat pesanan lokal</h2><div class="note">Status pesanan diatur oleh pihak toko. Karena belum ada server, status di browser ini tidak berubah otomatis dan bukan notifikasi real-time; tanyakan kondisi pesanan lewat WhatsApp. Data hilang jika data browser dihapus.</div>` +
+    (orders.length ? orders.map(o => `<div class="panel"><b>${esc(o.id)}</b> · ${new Date(o.date).toLocaleString("id-ID")}<br>${o.items.map(i => `${i.qty}× ${esc(i.name)}`).join(", ")}<br>Total ${rp(o.total)} · ${esc(o.pay)} · ${o.del === "pickup" ? "Pickup" : esc(o.courier) + " " + esc(o.service || "")}
+    <div class="row" style="margin-top:.6rem"><span class="tag">Status: ${esc(o.status)}</span><a class="btn ghost" href="#/pay/${o.id}">Detail & bayar</a><a class="btn ghost" href="#/receipt/${o.id}">Struk</a></div></div>`).join("") : `<div class="empty">Belum ada pesanan.</div>`);
+}
+const LOGO = `<svg viewBox="0 0 64 44" width="72" height="50" aria-hidden="true"><path d="M12 40c-8 0-11-12-3-15-2-9 9-14 15-8 4-8 17-7 19 3 9-1 13 10 6 14-2 3-5 6-9 6z" fill="#fff" stroke="#2B1710" stroke-width="2.5" stroke-linejoin="round"/><circle cx="24" cy="26" r="2" fill="#2B1710"/><circle cx="40" cy="26" r="2" fill="#2B1710"/><path d="M28 31q4 3 8 0" stroke="#2B1710" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="19" cy="30" rx="3" ry="2" fill="#FF3D8B"/><ellipse cx="45" cy="30" rx="3" ry="2" fill="#FF3D8B"/></svg>`;
+function receiptPage(id) {
+  const o = orders.find(x => x.id === id); if (!o) return location.hash = "#/orders";
+  const row = (a, b, c = "") => `<div class="r ${c}"><span>${a}</span><span>${b}</span></div>`;
+  $("#app").innerHTML = `<div class="rc" id="receipt"><div class="c">${LOGO}<h2>${STORE.name}</h2><small>Soft, Sweet, and Puffy.</small><br><small>${STORE.address}<br>WhatsApp ${STORE.waDisplay}<br>Instagram ${STORE.ig}</small></div><hr>
+  ${row("No. pesanan", esc(o.id))}${row("Tanggal", new Date(o.date).toLocaleString("id-ID"))}${row("Pelanggan", esc(o.name))}${row("WhatsApp", esc(o.phone))}
+  ${row("Pengambilan", o.del === "pickup" ? "Ambil sendiri" + (o.slot ? " (" + esc(o.slot) + ")" : "") : esc(o.courier) + " " + esc(o.service || ""))}
+  ${o.del === "delivery" ? row("Alamat", esc(o.addr)) : ""}${o.note ? row("Catatan", esc(o.note)) : ""}<hr>
+  ${o.items.map(i => `<div class="it"><b>${esc(i.name)}</b>${row(i.qty + " × " + rp(i.price), rp(i.qty * i.price))}</div>`).join("")}<hr>
+  ${row("Subtotal", rp(o.sub))}${row("Diskon" + (o.voucher ? " (" + esc(o.voucher) + ")" : ""), "-" + rp(o.disc))}${row("Pengiriman (estimasi)", rp(o.ship))}${row("TOTAL", rp(o.total), "tot")}<hr>
+  ${row("Metode bayar", esc(o.pay))}${row("Status", esc(o.status))}<hr>
+  <div class="c"><small>Struk ini dibuat dari data lokal di browser pelanggan dan bukan bukti pembayaran diterima. Pembayaran sah setelah diverifikasi toko.<br>Terima kasih sudah berbelanja!</small></div></div>
+  <div class="row noprint" style="justify-content:center;margin-top:1rem"><button class="btn" id="prt">Cetak Struk</button><a class="btn ghost" href="#/orders">Kembali</a></div>`;
+  $("#prt").onclick = () => window.print();
+}
+function contact() {
+  $("#app").innerHTML = `<div class="panel"><h2>Kontak & lokasi</h2><p><b>${STORE.name}</b><br>${STORE.address}<br>WhatsApp: ${STORE.waDisplay}<br>Instagram: ${igLink()}<br>${STORE.hours ? "Jam buka: " + esc(STORE.hours) : "Jam operasional belum diisi pemilik."}</p><div class="row"><a class="btn" target="_blank" rel="noopener" href="${waLink("Halo Cloud Bread Puffy, saya ingin bertanya mengenai produk dan pemesanan cloud bread.")}">Hubungi Kami</a><a class="btn ghost" target="_blank" rel="noopener" href="${mapLink}">Lihat Lokasi Toko</a></div></div>`;
+}
+
+/* ---- Event global ---- */
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-add],[data-fav],[data-cq],[data-rm],[data-copy]"); if (!t) return;
+  if (t.dataset.add) addToCart(t.dataset.add);
+  if (t.dataset.fav) { const i = favs.indexOf(t.dataset.fav); i < 0 ? favs.push(t.dataset.fav) : favs.splice(i, 1); save("favs", favs); route(); }
+  if (t.dataset.cq) { const it = cart.find(x => x.id === t.dataset.cq), n = it.qty + +t.dataset.d; if (n < 1) return; if (n > stock[it.id]) return toast(`Stok hanya ${stock[it.id]}.`); it.qty = n; save("cart", cart); cartPage(); badges(); }
+  if (t.dataset.rm) { cart = cart.filter(x => x.id !== t.dataset.rm); save("cart", cart); cartPage(); badges(); }
+  if (t.dataset.copy) copy(t.dataset.copy);
+});
+$("#searchForm").onsubmit = e => { e.preventDefault(); sessionStorage.setItem("cbp_q", $("#searchInput").value); location.hash = "#/products"; if (location.hash === "#/products") route(); };
+$("#waFooter").href = waLink("Halo Cloud Bread Puffy, saya ingin bertanya mengenai produk dan pemesanan cloud bread.");
+$("#mapFooter").href = mapLink;
+window.addEventListener("hashchange", route); route();
+
+</script>
+</body>
+</html>
